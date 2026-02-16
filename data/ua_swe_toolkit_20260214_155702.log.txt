@@ -1,0 +1,183 @@
+2026-02-14 15:57:02 | INFO     | ua_swe_toolkit | Log file: data\ua_swe_toolkit_20260214_155702.log.txt
+2026-02-14 15:57:02 | INFO     | ua_swe_toolkit | ======================================================================
+2026-02-14 15:57:02 | INFO     | ua_swe_toolkit | UA SWE Processing — WY1982 to WY2025
+2026-02-14 15:57:02 | INFO     | ua_swe_toolkit |   Units: inches
+2026-02-14 15:57:02 | INFO     | ua_swe_toolkit | ======================================================================
+2026-02-14 15:57:02 | INFO     | ua_swe_toolkit | [TIMER] Process WY1982 — started
+2026-02-14 15:57:02 | INFO     | ua_swe_toolkit | Processing WY1982...
+2026-02-14 15:57:08 | INFO     | ua_swe_toolkit |   Saved basin-mean CSV: data/processed\basin_mean_SWE_WY1982.csv (365 days, units=inches)
+2026-02-14 15:57:08 | INFO     | ua_swe_toolkit | [TIMER] Process WY1982 — finished in 6.1s
+2026-02-14 15:57:08 | INFO     | ua_swe_toolkit | [TIMER] Process WY1983 — started
+2026-02-14 15:57:08 | INFO     | ua_swe_toolkit | Processing WY1983...
+2026-02-14 15:57:14 | INFO     | ua_swe_toolkit |   Saved basin-mean CSV: data/processed\basin_mean_SWE_WY1983.csv (365 days, units=inches)
+2026-02-14 15:57:14 | INFO     | ua_swe_toolkit | [TIMER] Process WY1983 — finished in 5.9s
+2026-02-14 15:57:14 | INFO     | ua_swe_toolkit | [TIMER] Process WY1984 — started
+2026-02-14 15:57:14 | INFO     | ua_swe_toolkit | Processing WY1984...
+2026-02-14 15:57:20 | INFO     | ua_swe_toolkit |   Saved basin-mean CSV: data/processed\basin_mean_SWE_WY1984.csv (366 days, units=inches)
+2026-02-14 15:57:20 | INFO     | ua_swe_toolkit | [TIMER] Process WY1984 — finished in 6.0s
+2026-02-14 15:57:20 | INFO     | ua_swe_toolkit | [TIMER] Process WY1985 — started
+2026-02-14 15:57:20 | INFO     | ua_swe_toolkit | Processing WY1985...
+2026-02-14 15:57:26 | INFO     | ua_swe_toolkit |   Saved basin-mean CSV: data/processed\basin_mean_SWE_WY1985.csv (365 days, units=inches)
+2026-02-14 15:57:26 | INFO     | ua_swe_toolkit | [TIMER] Process WY1985 — finished in 5.9s
+2026-02-14 15:57:26 | INFO     | ua_swe_toolkit | [TIMER] Process WY1986 — started
+2026-02-14 15:57:26 | INFO     | ua_swe_toolkit | Processing WY1986...
+2026-02-14 15:57:32 | INFO     | ua_swe_toolkit |   Saved basin-mean CSV: data/processed\basin_mean_SWE_WY1986.csv (365 days, units=inches)
+2026-02-14 15:57:32 | INFO     | ua_swe_toolkit | [TIMER] Process WY1986 — finished in 5.8s
+2026-02-14 15:57:32 | INFO     | ua_swe_toolkit | [TIMER] Process WY1987 — started
+2026-02-14 15:57:32 | INFO     | ua_swe_toolkit | Processing WY1987...
+2026-02-14 15:57:38 | INFO     | ua_swe_toolkit |   Saved basin-mean CSV: data/processed\basin_mean_SWE_WY1987.csv (365 days, units=inches)
+2026-02-14 15:57:38 | INFO     | ua_swe_toolkit | [TIMER] Process WY1987 — finished in 5.8s
+2026-02-14 15:57:38 | INFO     | ua_swe_toolkit | [TIMER] Process WY1988 — started
+2026-02-14 15:57:38 | INFO     | ua_swe_toolkit | Processing WY1988...
+2026-02-14 15:57:43 | INFO     | ua_swe_toolkit |   Saved basin-mean CSV: data/processed\basin_mean_SWE_WY1988.csv (366 days, units=inches)
+2026-02-14 15:57:43 | INFO     | ua_swe_toolkit | [TIMER] Process WY1988 — finished in 5.8s
+2026-02-14 15:57:43 | INFO     | ua_swe_toolkit | [TIMER] Process WY1989 — started
+2026-02-14 15:57:43 | INFO     | ua_swe_toolkit | Processing WY1989...
+2026-02-14 15:57:49 | INFO     | ua_swe_toolkit |   Saved basin-mean CSV: data/processed\basin_mean_SWE_WY1989.csv (365 days, units=inches)
+2026-02-14 15:57:49 | INFO     | ua_swe_toolkit | [TIMER] Process WY1989 — finished in 5.8s
+2026-02-14 15:57:49 | INFO     | ua_swe_toolkit | [TIMER] Process WY1990 — started
+2026-02-14 15:57:49 | INFO     | ua_swe_toolkit | Processing WY1990...
+2026-02-14 15:57:55 | INFO     | ua_swe_toolkit |   Saved basin-mean CSV: data/processed\basin_mean_SWE_WY1990.csv (365 days, units=inches)
+2026-02-14 15:57:55 | INFO     | ua_swe_toolkit | [TIMER] Process WY1990 — finished in 5.9s
+2026-02-14 15:57:55 | INFO     | ua_swe_toolkit | [TIMER] Process WY1991 — started
+2026-02-14 15:57:55 | INFO     | ua_swe_toolkit | Processing WY1991...
+2026-02-14 15:58:01 | INFO     | ua_swe_toolkit |   Saved basin-mean CSV: data/processed\basin_mean_SWE_WY1991.csv (365 days, units=inches)
+2026-02-14 15:58:01 | INFO     | ua_swe_toolkit | [TIMER] Process WY1991 — finished in 5.8s
+2026-02-14 15:58:01 | INFO     | ua_swe_toolkit | [TIMER] Process WY1992 — started
+2026-02-14 15:58:01 | INFO     | ua_swe_toolkit | Processing WY1992...
+2026-02-14 15:58:07 | INFO     | ua_swe_toolkit |   Saved basin-mean CSV: data/processed\basin_mean_SWE_WY1992.csv (366 days, units=inches)
+2026-02-14 15:58:07 | INFO     | ua_swe_toolkit | [TIMER] Process WY1992 — finished in 5.8s
+2026-02-14 15:58:07 | INFO     | ua_swe_toolkit | [TIMER] Process WY1993 — started
+2026-02-14 15:58:07 | INFO     | ua_swe_toolkit | Processing WY1993...
+2026-02-14 15:58:12 | INFO     | ua_swe_toolkit |   Saved basin-mean CSV: data/processed\basin_mean_SWE_WY1993.csv (365 days, units=inches)
+2026-02-14 15:58:12 | INFO     | ua_swe_toolkit | [TIMER] Process WY1993 — finished in 5.8s
+2026-02-14 15:58:12 | INFO     | ua_swe_toolkit | [TIMER] Process WY1994 — started
+2026-02-14 15:58:12 | INFO     | ua_swe_toolkit | Processing WY1994...
+2026-02-14 15:58:18 | INFO     | ua_swe_toolkit |   Saved basin-mean CSV: data/processed\basin_mean_SWE_WY1994.csv (365 days, units=inches)
+2026-02-14 15:58:18 | INFO     | ua_swe_toolkit | [TIMER] Process WY1994 — finished in 5.9s
+2026-02-14 15:58:18 | INFO     | ua_swe_toolkit | [TIMER] Process WY1995 — started
+2026-02-14 15:58:18 | INFO     | ua_swe_toolkit | Processing WY1995...
+2026-02-14 15:58:24 | INFO     | ua_swe_toolkit |   Saved basin-mean CSV: data/processed\basin_mean_SWE_WY1995.csv (365 days, units=inches)
+2026-02-14 15:58:24 | INFO     | ua_swe_toolkit | [TIMER] Process WY1995 — finished in 5.8s
+2026-02-14 15:58:24 | INFO     | ua_swe_toolkit | [TIMER] Process WY1996 — started
+2026-02-14 15:58:24 | INFO     | ua_swe_toolkit | Processing WY1996...
+2026-02-14 15:58:30 | INFO     | ua_swe_toolkit |   Saved basin-mean CSV: data/processed\basin_mean_SWE_WY1996.csv (366 days, units=inches)
+2026-02-14 15:58:30 | INFO     | ua_swe_toolkit | [TIMER] Process WY1996 — finished in 5.9s
+2026-02-14 15:58:30 | INFO     | ua_swe_toolkit | [TIMER] Process WY1997 — started
+2026-02-14 15:58:30 | INFO     | ua_swe_toolkit | Processing WY1997...
+2026-02-14 15:58:36 | INFO     | ua_swe_toolkit |   Saved basin-mean CSV: data/processed\basin_mean_SWE_WY1997.csv (365 days, units=inches)
+2026-02-14 15:58:36 | INFO     | ua_swe_toolkit | [TIMER] Process WY1997 — finished in 5.8s
+2026-02-14 15:58:36 | INFO     | ua_swe_toolkit | [TIMER] Process WY1998 — started
+2026-02-14 15:58:36 | INFO     | ua_swe_toolkit | Processing WY1998...
+2026-02-14 15:58:42 | INFO     | ua_swe_toolkit |   Saved basin-mean CSV: data/processed\basin_mean_SWE_WY1998.csv (365 days, units=inches)
+2026-02-14 15:58:42 | INFO     | ua_swe_toolkit | [TIMER] Process WY1998 — finished in 5.8s
+2026-02-14 15:58:42 | INFO     | ua_swe_toolkit | [TIMER] Process WY1999 — started
+2026-02-14 15:58:42 | INFO     | ua_swe_toolkit | Processing WY1999...
+2026-02-14 15:58:47 | INFO     | ua_swe_toolkit |   Saved basin-mean CSV: data/processed\basin_mean_SWE_WY1999.csv (365 days, units=inches)
+2026-02-14 15:58:47 | INFO     | ua_swe_toolkit | [TIMER] Process WY1999 — finished in 5.8s
+2026-02-14 15:58:47 | INFO     | ua_swe_toolkit | [TIMER] Process WY2000 — started
+2026-02-14 15:58:47 | INFO     | ua_swe_toolkit | Processing WY2000...
+2026-02-14 15:58:53 | INFO     | ua_swe_toolkit |   Saved basin-mean CSV: data/processed\basin_mean_SWE_WY2000.csv (366 days, units=inches)
+2026-02-14 15:58:53 | INFO     | ua_swe_toolkit | [TIMER] Process WY2000 — finished in 5.9s
+2026-02-14 15:58:53 | INFO     | ua_swe_toolkit | [TIMER] Process WY2001 — started
+2026-02-14 15:58:53 | INFO     | ua_swe_toolkit | Processing WY2001...
+2026-02-14 15:58:59 | INFO     | ua_swe_toolkit |   Saved basin-mean CSV: data/processed\basin_mean_SWE_WY2001.csv (365 days, units=inches)
+2026-02-14 15:58:59 | INFO     | ua_swe_toolkit | [TIMER] Process WY2001 — finished in 5.8s
+2026-02-14 15:58:59 | INFO     | ua_swe_toolkit | [TIMER] Process WY2002 — started
+2026-02-14 15:58:59 | INFO     | ua_swe_toolkit | Processing WY2002...
+2026-02-14 15:59:05 | INFO     | ua_swe_toolkit |   Saved basin-mean CSV: data/processed\basin_mean_SWE_WY2002.csv (365 days, units=inches)
+2026-02-14 15:59:05 | INFO     | ua_swe_toolkit | [TIMER] Process WY2002 — finished in 5.8s
+2026-02-14 15:59:05 | INFO     | ua_swe_toolkit | [TIMER] Process WY2003 — started
+2026-02-14 15:59:05 | INFO     | ua_swe_toolkit | Processing WY2003...
+2026-02-14 15:59:11 | INFO     | ua_swe_toolkit |   Saved basin-mean CSV: data/processed\basin_mean_SWE_WY2003.csv (365 days, units=inches)
+2026-02-14 15:59:11 | INFO     | ua_swe_toolkit | [TIMER] Process WY2003 — finished in 5.8s
+2026-02-14 15:59:11 | INFO     | ua_swe_toolkit | [TIMER] Process WY2004 — started
+2026-02-14 15:59:11 | INFO     | ua_swe_toolkit | Processing WY2004...
+2026-02-14 15:59:17 | INFO     | ua_swe_toolkit |   Saved basin-mean CSV: data/processed\basin_mean_SWE_WY2004.csv (366 days, units=inches)
+2026-02-14 15:59:17 | INFO     | ua_swe_toolkit | [TIMER] Process WY2004 — finished in 5.9s
+2026-02-14 15:59:17 | INFO     | ua_swe_toolkit | [TIMER] Process WY2005 — started
+2026-02-14 15:59:17 | INFO     | ua_swe_toolkit | Processing WY2005...
+2026-02-14 15:59:22 | INFO     | ua_swe_toolkit |   Saved basin-mean CSV: data/processed\basin_mean_SWE_WY2005.csv (365 days, units=inches)
+2026-02-14 15:59:22 | INFO     | ua_swe_toolkit | [TIMER] Process WY2005 — finished in 5.8s
+2026-02-14 15:59:22 | INFO     | ua_swe_toolkit | [TIMER] Process WY2006 — started
+2026-02-14 15:59:22 | INFO     | ua_swe_toolkit | Processing WY2006...
+2026-02-14 15:59:28 | INFO     | ua_swe_toolkit |   Saved basin-mean CSV: data/processed\basin_mean_SWE_WY2006.csv (365 days, units=inches)
+2026-02-14 15:59:28 | INFO     | ua_swe_toolkit | [TIMER] Process WY2006 — finished in 5.8s
+2026-02-14 15:59:28 | INFO     | ua_swe_toolkit | [TIMER] Process WY2007 — started
+2026-02-14 15:59:28 | INFO     | ua_swe_toolkit | Processing WY2007...
+2026-02-14 15:59:34 | INFO     | ua_swe_toolkit |   Saved basin-mean CSV: data/processed\basin_mean_SWE_WY2007.csv (365 days, units=inches)
+2026-02-14 15:59:34 | INFO     | ua_swe_toolkit | [TIMER] Process WY2007 — finished in 5.8s
+2026-02-14 15:59:34 | INFO     | ua_swe_toolkit | [TIMER] Process WY2008 — started
+2026-02-14 15:59:34 | INFO     | ua_swe_toolkit | Processing WY2008...
+2026-02-14 15:59:40 | INFO     | ua_swe_toolkit |   Saved basin-mean CSV: data/processed\basin_mean_SWE_WY2008.csv (366 days, units=inches)
+2026-02-14 15:59:40 | INFO     | ua_swe_toolkit | [TIMER] Process WY2008 — finished in 5.8s
+2026-02-14 15:59:40 | INFO     | ua_swe_toolkit | [TIMER] Process WY2009 — started
+2026-02-14 15:59:40 | INFO     | ua_swe_toolkit | Processing WY2009...
+2026-02-14 15:59:46 | INFO     | ua_swe_toolkit |   Saved basin-mean CSV: data/processed\basin_mean_SWE_WY2009.csv (365 days, units=inches)
+2026-02-14 15:59:46 | INFO     | ua_swe_toolkit | [TIMER] Process WY2009 — finished in 5.8s
+2026-02-14 15:59:46 | INFO     | ua_swe_toolkit | [TIMER] Process WY2010 — started
+2026-02-14 15:59:46 | INFO     | ua_swe_toolkit | Processing WY2010...
+2026-02-14 15:59:51 | INFO     | ua_swe_toolkit |   Saved basin-mean CSV: data/processed\basin_mean_SWE_WY2010.csv (365 days, units=inches)
+2026-02-14 15:59:51 | INFO     | ua_swe_toolkit | [TIMER] Process WY2010 — finished in 5.9s
+2026-02-14 15:59:51 | INFO     | ua_swe_toolkit | [TIMER] Process WY2011 — started
+2026-02-14 15:59:51 | INFO     | ua_swe_toolkit | Processing WY2011...
+2026-02-14 15:59:57 | INFO     | ua_swe_toolkit |   Saved basin-mean CSV: data/processed\basin_mean_SWE_WY2011.csv (365 days, units=inches)
+2026-02-14 15:59:57 | INFO     | ua_swe_toolkit | [TIMER] Process WY2011 — finished in 5.9s
+2026-02-14 15:59:57 | INFO     | ua_swe_toolkit | [TIMER] Process WY2012 — started
+2026-02-14 15:59:57 | INFO     | ua_swe_toolkit | Processing WY2012...
+2026-02-14 16:00:04 | INFO     | ua_swe_toolkit |   Saved basin-mean CSV: data/processed\basin_mean_SWE_WY2012.csv (366 days, units=inches)
+2026-02-14 16:00:04 | INFO     | ua_swe_toolkit | [TIMER] Process WY2012 — finished in 6.3s
+2026-02-14 16:00:04 | INFO     | ua_swe_toolkit | [TIMER] Process WY2013 — started
+2026-02-14 16:00:04 | INFO     | ua_swe_toolkit | Processing WY2013...
+2026-02-14 16:00:09 | INFO     | ua_swe_toolkit |   Saved basin-mean CSV: data/processed\basin_mean_SWE_WY2013.csv (365 days, units=inches)
+2026-02-14 16:00:09 | INFO     | ua_swe_toolkit | [TIMER] Process WY2013 — finished in 5.8s
+2026-02-14 16:00:09 | INFO     | ua_swe_toolkit | [TIMER] Process WY2014 — started
+2026-02-14 16:00:09 | INFO     | ua_swe_toolkit | Processing WY2014...
+2026-02-14 16:00:15 | INFO     | ua_swe_toolkit |   Saved basin-mean CSV: data/processed\basin_mean_SWE_WY2014.csv (365 days, units=inches)
+2026-02-14 16:00:15 | INFO     | ua_swe_toolkit | [TIMER] Process WY2014 — finished in 5.8s
+2026-02-14 16:00:15 | INFO     | ua_swe_toolkit | [TIMER] Process WY2015 — started
+2026-02-14 16:00:15 | INFO     | ua_swe_toolkit | Processing WY2015...
+2026-02-14 16:00:21 | INFO     | ua_swe_toolkit |   Saved basin-mean CSV: data/processed\basin_mean_SWE_WY2015.csv (365 days, units=inches)
+2026-02-14 16:00:21 | INFO     | ua_swe_toolkit | [TIMER] Process WY2015 — finished in 5.9s
+2026-02-14 16:00:21 | INFO     | ua_swe_toolkit | [TIMER] Process WY2016 — started
+2026-02-14 16:00:21 | INFO     | ua_swe_toolkit | Processing WY2016...
+2026-02-14 16:00:27 | INFO     | ua_swe_toolkit |   Saved basin-mean CSV: data/processed\basin_mean_SWE_WY2016.csv (366 days, units=inches)
+2026-02-14 16:00:27 | INFO     | ua_swe_toolkit | [TIMER] Process WY2016 — finished in 5.8s
+2026-02-14 16:00:27 | INFO     | ua_swe_toolkit | [TIMER] Process WY2017 — started
+2026-02-14 16:00:27 | INFO     | ua_swe_toolkit | Processing WY2017...
+2026-02-14 16:00:33 | INFO     | ua_swe_toolkit |   Saved basin-mean CSV: data/processed\basin_mean_SWE_WY2017.csv (365 days, units=inches)
+2026-02-14 16:00:33 | INFO     | ua_swe_toolkit | [TIMER] Process WY2017 — finished in 5.8s
+2026-02-14 16:00:33 | INFO     | ua_swe_toolkit | [TIMER] Process WY2018 — started
+2026-02-14 16:00:33 | INFO     | ua_swe_toolkit | Processing WY2018...
+2026-02-14 16:00:38 | INFO     | ua_swe_toolkit |   Saved basin-mean CSV: data/processed\basin_mean_SWE_WY2018.csv (365 days, units=inches)
+2026-02-14 16:00:38 | INFO     | ua_swe_toolkit | [TIMER] Process WY2018 — finished in 5.8s
+2026-02-14 16:00:38 | INFO     | ua_swe_toolkit | [TIMER] Process WY2019 — started
+2026-02-14 16:00:38 | INFO     | ua_swe_toolkit | Processing WY2019...
+2026-02-14 16:00:44 | INFO     | ua_swe_toolkit |   Saved basin-mean CSV: data/processed\basin_mean_SWE_WY2019.csv (365 days, units=inches)
+2026-02-14 16:00:44 | INFO     | ua_swe_toolkit | [TIMER] Process WY2019 — finished in 5.7s
+2026-02-14 16:00:44 | INFO     | ua_swe_toolkit | [TIMER] Process WY2020 — started
+2026-02-14 16:00:44 | INFO     | ua_swe_toolkit | Processing WY2020...
+2026-02-14 16:00:50 | INFO     | ua_swe_toolkit |   Saved basin-mean CSV: data/processed\basin_mean_SWE_WY2020.csv (366 days, units=inches)
+2026-02-14 16:00:50 | INFO     | ua_swe_toolkit | [TIMER] Process WY2020 — finished in 5.7s
+2026-02-14 16:00:50 | INFO     | ua_swe_toolkit | [TIMER] Process WY2021 — started
+2026-02-14 16:00:50 | INFO     | ua_swe_toolkit | Processing WY2021...
+2026-02-14 16:00:55 | INFO     | ua_swe_toolkit |   Saved basin-mean CSV: data/processed\basin_mean_SWE_WY2021.csv (365 days, units=inches)
+2026-02-14 16:00:55 | INFO     | ua_swe_toolkit | [TIMER] Process WY2021 — finished in 5.6s
+2026-02-14 16:00:55 | INFO     | ua_swe_toolkit | [TIMER] Process WY2022 — started
+2026-02-14 16:00:55 | INFO     | ua_swe_toolkit | Processing WY2022...
+2026-02-14 16:01:01 | INFO     | ua_swe_toolkit |   Saved basin-mean CSV: data/processed\basin_mean_SWE_WY2022.csv (365 days, units=inches)
+2026-02-14 16:01:01 | INFO     | ua_swe_toolkit | [TIMER] Process WY2022 — finished in 5.7s
+2026-02-14 16:01:01 | INFO     | ua_swe_toolkit | [TIMER] Process WY2023 — started
+2026-02-14 16:01:01 | INFO     | ua_swe_toolkit | Processing WY2023...
+2026-02-14 16:01:07 | INFO     | ua_swe_toolkit |   Saved basin-mean CSV: data/processed\basin_mean_SWE_WY2023.csv (365 days, units=inches)
+2026-02-14 16:01:07 | INFO     | ua_swe_toolkit | [TIMER] Process WY2023 — finished in 5.6s
+2026-02-14 16:01:07 | INFO     | ua_swe_toolkit | [TIMER] Process WY2024 — started
+2026-02-14 16:01:07 | INFO     | ua_swe_toolkit | Processing WY2024...
+2026-02-14 16:01:12 | INFO     | ua_swe_toolkit |   Saved basin-mean CSV: data/processed\basin_mean_SWE_WY2024.csv (366 days, units=inches)
+2026-02-14 16:01:12 | INFO     | ua_swe_toolkit | [TIMER] Process WY2024 — finished in 5.7s
+2026-02-14 16:01:12 | INFO     | ua_swe_toolkit | [TIMER] Process WY2025 — started
+2026-02-14 16:01:12 | INFO     | ua_swe_toolkit | Processing WY2025...
+2026-02-14 16:01:19 | INFO     | ua_swe_toolkit |   Saved basin-mean CSV: data/processed\basin_mean_SWE_WY2025.csv (395 days, units=inches)
+2026-02-14 16:01:19 | INFO     | ua_swe_toolkit | [TIMER] Process WY2025 — finished in 6.1s
+2026-02-14 16:01:19 | INFO     | ua_swe_toolkit | Saved combined CSV: data/processed\basin_mean_SWE_WY1982-2025.csv (16101 records)
+2026-02-14 16:01:19 | INFO     | ua_swe_toolkit | Processing complete.

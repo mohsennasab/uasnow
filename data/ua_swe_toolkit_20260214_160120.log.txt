@@ -1,0 +1,61 @@
+2026-02-14 16:01:20 | INFO     | ua_swe_toolkit | Log file: data\ua_swe_toolkit_20260214_160120.log.txt
+2026-02-14 16:01:20 | INFO     | ua_swe_toolkit | ======================================================================
+2026-02-14 16:01:20 | INFO     | ua_swe_toolkit | UA SWE Visualization — WY1982 to WY2025
+2026-02-14 16:01:20 | INFO     | ua_swe_toolkit |   Units: inches
+2026-02-14 16:01:20 | INFO     | ua_swe_toolkit | ======================================================================
+2026-02-14 16:01:20 | INFO     | ua_swe_toolkit | [TIMER] Time series plots — started
+2026-02-14 16:01:21 | INFO     | ua_swe_toolkit |   Multi-year overlay plot: data/figures\timeseries_SWE_WY1982-2025.png
+2026-02-14 16:01:21 | INFO     | ua_swe_toolkit | [TIMER] Time series plots — finished in 0.9s
+2026-02-14 16:01:21 | INFO     | ua_swe_toolkit | [TIMER] Annual peak bar chart — started
+2026-02-14 16:01:21 | INFO     | ua_swe_toolkit |   Annual peak SWE plot: data/figures\annual_peak_SWE_WY1982-2025.png
+2026-02-14 16:01:21 | INFO     | ua_swe_toolkit | [TIMER] Annual peak bar chart — finished in 0.3s
+2026-02-14 16:01:21 | INFO     | ua_swe_toolkit | [TIMER] Peak spatial maps — started
+2026-02-14 16:01:22 | INFO     | ua_swe_toolkit |   WY1982 peak SWE map: 1982-01-19 → data/figures\UA_SWE_800m_SWE_19820119_stable.png
+2026-02-14 16:01:22 | INFO     | ua_swe_toolkit |   WY1983 peak SWE map: 1983-02-07 → data/figures\UA_SWE_800m_SWE_19830207_stable.png
+2026-02-14 16:01:22 | INFO     | ua_swe_toolkit |   WY1984 peak SWE map: 1984-01-24 → data/figures\UA_SWE_800m_SWE_19840124_stable.png
+2026-02-14 16:01:23 | INFO     | ua_swe_toolkit |   WY1985 peak SWE map: 1985-02-17 → data/figures\UA_SWE_800m_SWE_19850217_stable.png
+2026-02-14 16:01:23 | INFO     | ua_swe_toolkit |   WY1986 peak SWE map: 1986-02-15 → data/figures\UA_SWE_800m_SWE_19860215_stable.png
+2026-02-14 16:01:23 | INFO     | ua_swe_toolkit |   WY1987 peak SWE map: 1987-01-26 → data/figures\UA_SWE_800m_SWE_19870126_stable.png
+2026-02-14 16:01:23 | INFO     | ua_swe_toolkit |   WY1988 peak SWE map: 1988-01-13 → data/figures\UA_SWE_800m_SWE_19880113_stable.png
+2026-02-14 16:01:24 | INFO     | ua_swe_toolkit |   WY1989 peak SWE map: 1989-02-19 → data/figures\UA_SWE_800m_SWE_19890219_stable.png
+2026-02-14 16:01:24 | INFO     | ua_swe_toolkit |   WY1990 peak SWE map: 1989-12-28 → data/figures\UA_SWE_800m_SWE_19891228_stable.png
+2026-02-14 16:01:24 | INFO     | ua_swe_toolkit |   WY1991 peak SWE map: 1991-02-18 → data/figures\UA_SWE_800m_SWE_19910218_stable.png
+2026-02-14 16:01:25 | INFO     | ua_swe_toolkit |   WY1992 peak SWE map: 1991-11-11 → data/figures\UA_SWE_800m_SWE_19911111_stable.png
+2026-02-14 16:01:25 | INFO     | ua_swe_toolkit |   WY1993 peak SWE map: 1993-03-16 → data/figures\UA_SWE_800m_SWE_19930316_stable.png
+2026-02-14 16:01:25 | INFO     | ua_swe_toolkit |   WY1994 peak SWE map: 1994-01-18 → data/figures\UA_SWE_800m_SWE_19940118_stable.png
+2026-02-14 16:01:25 | INFO     | ua_swe_toolkit |   WY1995 peak SWE map: 1995-01-07 → data/figures\UA_SWE_800m_SWE_19950107_stable.png
+2026-02-14 16:01:26 | INFO     | ua_swe_toolkit |   WY1996 peak SWE map: 1996-02-06 → data/figures\UA_SWE_800m_SWE_19960206_stable.png
+2026-02-14 16:01:26 | INFO     | ua_swe_toolkit |   WY1997 peak SWE map: 1997-01-11 → data/figures\UA_SWE_800m_SWE_19970111_stable.png
+2026-02-14 16:01:26 | INFO     | ua_swe_toolkit |   WY1998 peak SWE map: 1998-01-02 → data/figures\UA_SWE_800m_SWE_19980102_stable.png
+2026-02-14 16:01:27 | INFO     | ua_swe_toolkit |   WY1999 peak SWE map: 1999-01-07 → data/figures\UA_SWE_800m_SWE_19990107_stable.png
+2026-02-14 16:01:27 | INFO     | ua_swe_toolkit |   WY2000 peak SWE map: 2000-01-31 → data/figures\UA_SWE_800m_SWE_20000131_stable.png
+2026-02-14 16:01:27 | INFO     | ua_swe_toolkit |   WY2001 peak SWE map: 2001-01-12 → data/figures\UA_SWE_800m_SWE_20010112_stable.png
+2026-02-14 16:01:27 | INFO     | ua_swe_toolkit |   WY2002 peak SWE map: 2002-02-08 → data/figures\UA_SWE_800m_SWE_20020208_stable.png
+2026-02-14 16:01:28 | INFO     | ua_swe_toolkit |   WY2003 peak SWE map: 2002-12-06 → data/figures\UA_SWE_800m_SWE_20021206_stable.png
+2026-02-14 16:01:28 | INFO     | ua_swe_toolkit |   WY2004 peak SWE map: 2004-02-17 → data/figures\UA_SWE_800m_SWE_20040217_stable.png
+2026-02-14 16:01:28 | INFO     | ua_swe_toolkit |   WY2005 peak SWE map: 2005-01-30 → data/figures\UA_SWE_800m_SWE_20050130_stable.png
+2026-02-14 16:01:28 | INFO     | ua_swe_toolkit |   WY2006 peak SWE map: 2006-02-13 → data/figures\UA_SWE_800m_SWE_20060213_stable.png
+2026-02-14 16:01:29 | INFO     | ua_swe_toolkit |   WY2007 peak SWE map: 2007-02-03 → data/figures\UA_SWE_800m_SWE_20070203_stable.png
+2026-02-14 16:01:29 | INFO     | ua_swe_toolkit |   WY2008 peak SWE map: 2008-01-17 → data/figures\UA_SWE_800m_SWE_20080117_stable.png
+2026-02-14 16:01:29 | INFO     | ua_swe_toolkit |   WY2009 peak SWE map: 2009-02-05 → data/figures\UA_SWE_800m_SWE_20090205_stable.png
+2026-02-14 16:01:30 | INFO     | ua_swe_toolkit |   WY2010 peak SWE map: 2010-02-18 → data/figures\UA_SWE_800m_SWE_20100218_stable.png
+2026-02-14 16:01:30 | INFO     | ua_swe_toolkit |   WY2011 peak SWE map: 2011-01-14 → data/figures\UA_SWE_800m_SWE_20110114_stable.png
+2026-02-14 16:01:30 | INFO     | ua_swe_toolkit |   WY2012 peak SWE map: 2012-02-20 → data/figures\UA_SWE_800m_SWE_20120220_stable.png
+2026-02-14 16:01:30 | INFO     | ua_swe_toolkit |   WY2013 peak SWE map: 2013-03-06 → data/figures\UA_SWE_800m_SWE_20130306_stable.png
+2026-02-14 16:01:31 | INFO     | ua_swe_toolkit |   WY2014 peak SWE map: 2013-11-28 → data/figures\UA_SWE_800m_SWE_20131128_stable.png
+2026-02-14 16:01:31 | INFO     | ua_swe_toolkit |   WY2015 peak SWE map: 2015-02-27 → data/figures\UA_SWE_800m_SWE_20150227_stable.png
+2026-02-14 16:01:31 | INFO     | ua_swe_toolkit |   WY2016 peak SWE map: 2016-01-24 → data/figures\UA_SWE_800m_SWE_20160124_stable.png
+2026-02-14 16:01:32 | INFO     | ua_swe_toolkit |   WY2017 peak SWE map: 2017-01-08 → data/figures\UA_SWE_800m_SWE_20170108_stable.png
+2026-02-14 16:01:32 | INFO     | ua_swe_toolkit |   WY2018 peak SWE map: 2018-02-05 → data/figures\UA_SWE_800m_SWE_20180205_stable.png
+2026-02-14 16:01:32 | INFO     | ua_swe_toolkit |   WY2019 peak SWE map: 2018-12-11 → data/figures\UA_SWE_800m_SWE_20181211_stable.png
+2026-02-14 16:01:32 | INFO     | ua_swe_toolkit |   WY2020 peak SWE map: 2020-02-21 → data/figures\UA_SWE_800m_SWE_20200221_stable.png
+2026-02-14 16:01:33 | INFO     | ua_swe_toolkit |   WY2021 peak SWE map: 2020-12-25 → data/figures\UA_SWE_800m_SWE_20201225_stable.png
+2026-02-14 16:01:33 | INFO     | ua_swe_toolkit |   WY2022 peak SWE map: 2022-01-18 → data/figures\UA_SWE_800m_SWE_20220118_stable.png
+2026-02-14 16:01:33 | INFO     | ua_swe_toolkit |   WY2023 peak SWE map: 2022-12-27 → data/figures\UA_SWE_800m_SWE_20221227_stable.png
+2026-02-14 16:01:33 | INFO     | ua_swe_toolkit |   WY2024 peak SWE map: 2024-01-21 → data/figures\UA_SWE_800m_SWE_20240121_stable.png
+2026-02-14 16:01:34 | INFO     | ua_swe_toolkit |   WY2025 peak SWE map: 2025-01-12 → data/figures\UA_SWE_800m_SWE_20250112_stable.png
+2026-02-14 16:01:34 | INFO     | ua_swe_toolkit | [TIMER] Peak spatial maps — finished in 12.2s
+2026-02-14 16:01:34 | INFO     | ua_swe_toolkit | [TIMER] Heatmap — started
+2026-02-14 16:01:35 | INFO     | ua_swe_toolkit |   SWE heatmap: data/figures\heatmap_SWE_WY1982-2025.png
+2026-02-14 16:01:35 | INFO     | ua_swe_toolkit | [TIMER] Heatmap — finished in 1.4s
+2026-02-14 16:01:35 | INFO     | ua_swe_toolkit | Visualization complete.
