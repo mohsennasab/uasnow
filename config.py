@@ -46,6 +46,7 @@ DIR_RAW = "data/raw"           # downloaded netCDF files (temporary)
 DIR_CLIPPED = "data/clipped"   # clipped GeoTIFFs per watershed
 DIR_PROCESSED = "data/processed"  # aggregated / resampled outputs
 DIR_FIGURES = "data/figures"   # visualization outputs
+DIR_DSS = "data/dss"           # HEC-DSS grids from step 5
 DIR_LOG = "data"               # log file output directory
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -54,7 +55,7 @@ DIR_LOG = "data"               # log file output directory
 DELETE_RAW_NETCDF = True       # remove raw netCDF after clipping to save disk
 DOWNLOAD_RETRIES = 3           # number of retry attempts for failed downloads
 DOWNLOAD_TIMEOUT = 60          # seconds per request timeout
-RESAMPLING_METHOD = "bilinear" # resampling for reprojection: bilinear, nearest, cubic
+RESAMPLING_METHOD = "nearest"  # resampling for reprojection: nearest, bilinear, cubic
 NODATA_VALUE = -9999.0         # NoData value for output GeoTIFFs
 DEFAULT_UNITS = "mm"           # default output unit system: "mm" or "inches"
 

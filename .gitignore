@@ -1,8 +1,8 @@
-# Data directories (large files — don't commit to Git)
-data/raw/
-data/clipped/
-data/processed/
-data/figures/
+# Keep only the validated DSS file in data/. Raw netCDFs and outputs are local.
+data/*
+!data/dss/
+data/dss/*
+!data/dss/ua_upper-tennessee_por_swe_1day.dss
 
 # Python
 __pycache__/

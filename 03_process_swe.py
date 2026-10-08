@@ -20,6 +20,8 @@ Usage:
 import os
 import glob
 import argparse
+import multiprocessing
+from concurrent.futures import ProcessPoolExecutor
 
 import numpy as np
 import pandas as pd
@@ -38,7 +40,21 @@ from utils import setup_logging, ensure_dir, parse_filename_date, StepTimer
 logger = setup_logging()
 
 
-def read_geotiffs_as_timeseries(tif_dir: str, variable: str = "SWE") -> xr.DataArray:
+def _read_single_tif(f: str, nodata: float) -> tuple | None:
+    """
+    Worker function to read a single GeoTIFF and return (date, DataArray).
+    Returns None if the date cannot be parsed.
+    """
+    d = parse_filename_date(os.path.basename(f))
+    if d is None:
+        return None
+    da = rioxarray.open_rasterio(f).squeeze("band", drop=True)
+    da = da.where(da != nodata)
+    return (np.datetime64(d), da)
+
+
+def read_geotiffs_as_timeseries(tif_dir: str, variable: str = "SWE",
+                                max_workers: int | None = None) -> xr.DataArray:
     """
     Read all GeoTIFFs in a directory, extract dates from filenames, and
     stack into a time-dimensioned DataArray.
@@ -52,6 +68,8 @@ def read_geotiffs_as_timeseries(tif_dir: str, variable: str = "SWE") -> xr.DataA
         Directory containing GeoTIFF files.
     variable : str
         Variable name (used for filtering filenames).
+    max_workers : int, optional
+        Number of parallel workers for reading files.
 
     Returns
     -------
@@ -61,19 +79,30 @@ def read_geotiffs_as_timeseries(tif_dir: str, variable: str = "SWE") -> xr.DataA
     if not tif_files:
         return None
 
+    n_workers = max_workers or max(1, multiprocessing.cpu_count() - 1)
+
     arrays = []
     dates = []
 
-    for f in tif_files:
-        d = parse_filename_date(os.path.basename(f))
-        if d is None:
-            logger.warning(f"  Cannot parse date from {os.path.basename(f)}, skipping")
-            continue
-        da = rioxarray.open_rasterio(f).squeeze("band", drop=True)
-        # Mask NoData
-        da = da.where(da != NODATA_VALUE)
-        arrays.append(da)
-        dates.append(np.datetime64(d))
+    if n_workers > 1 and len(tif_files) > 1:
+        with ProcessPoolExecutor(max_workers=n_workers) as executor:
+            results = list(executor.map(
+                _read_single_tif, tif_files,
+                [NODATA_VALUE] * len(tif_files),
+            ))
+        for r in results:
+            if r is None:
+                continue
+            dates.append(r[0])
+            arrays.append(r[1])
+    else:
+        for f in tif_files:
+            r = _read_single_tif(f, NODATA_VALUE)
+            if r is None:
+                logger.warning(f"  Cannot parse date from {os.path.basename(f)}, skipping")
+                continue
+            dates.append(r[0])
+            arrays.append(r[1])
 
     if not arrays:
         return None
@@ -126,7 +155,8 @@ def compute_monthly_mean(da: xr.DataArray) -> xr.DataArray:
 def process_water_years(wy_start: int, wy_end: int,
                         variable: str = "SWE",
                         units: str = DEFAULT_UNITS,
-                        compute_monthly: bool = False) -> None:
+                        compute_monthly: bool = False,
+                        max_workers: int | None = None) -> None:
     """
     Process all clipped GeoTIFFs across the requested water years.
 
@@ -140,6 +170,8 @@ def process_water_years(wy_start: int, wy_end: int,
         Unit system of the GeoTIFFs ('mm' or 'inches').
     compute_monthly : bool
         If True, also export monthly-mean GeoTIFFs.
+    max_workers : int, optional
+        Number of parallel workers for reading GeoTIFFs.
     """
     out_dir = ensure_dir(DIR_PROCESSED)
     all_dfs = []
@@ -152,7 +184,7 @@ def process_water_years(wy_start: int, wy_end: int,
 
         with StepTimer(f"Process WY{wy}"):
             logger.info(f"Processing WY{wy}...")
-            da = read_geotiffs_as_timeseries(tif_dir, variable)
+            da = read_geotiffs_as_timeseries(tif_dir, variable, max_workers)
             if da is None:
                 logger.warning(f"  No valid GeoTIFFs in WY{wy}")
                 continue
@@ -202,17 +234,21 @@ def main():
                         help=f"Unit system of the GeoTIFFs (default: {DEFAULT_UNITS})")
     parser.add_argument("--monthly", action="store_true",
                         help="Also export monthly-mean GeoTIFFs")
+    parser.add_argument("--workers", type=int, default=None,
+                        help="Number of parallel workers (default: CPU count - 1)")
     args = parser.parse_args()
 
     logger.info("=" * 70)
     logger.info(f"UA SWE Processing — WY{args.wy_start} to WY{args.wy_end}")
-    logger.info(f"  Units: {args.units}")
+    logger.info(f"  Units  : {args.units}")
+    logger.info(f"  Workers: {args.workers or 'auto'}")
     logger.info("=" * 70)
 
     process_water_years(args.wy_start, args.wy_end,
                         variable=args.variable,
                         units=args.units,
-                        compute_monthly=args.monthly)
+                        compute_monthly=args.monthly,
+                        max_workers=args.workers)
 
     logger.info("Processing complete.")
 

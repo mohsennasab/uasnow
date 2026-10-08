@@ -12,3 +12,7 @@ pandas>=2.1
 numpy>=1.24
 matplotlib>=3.8
 requests>=2.31
+
+# Step 5 (05_create_swe_dss.py) only; also needs a local HEC-Vortex installation
+JPype1>=1.5
+hecdss>=0.1.29

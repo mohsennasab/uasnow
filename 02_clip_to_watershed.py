@@ -37,6 +37,8 @@ Usage:
 import os
 import glob
 import argparse
+import multiprocessing
+from concurrent.futures import ProcessPoolExecutor, as_completed
 import numpy as np
 import xarray as xr
 import geopandas as gpd
@@ -164,11 +166,36 @@ def clip_and_reproject(nc_path: str, gdf: gpd.GeoDataFrame,
         return False
 
 
+def _clip_worker(nc_path: str, shp_path: str, out_path: str,
+                 variable: str, resampling: str, units: str,
+                 delete_raw: bool) -> str:
+    """
+    Worker function for parallel clip-and-reproject.
+
+    Accepts the watershed path (not GeoDataFrame) so the function is
+    picklable across processes. Each worker reloads the shapefile.
+
+    Returns
+    -------
+    str : 'processed', 'failed', or 'deleted' (processed + raw deleted).
+    """
+    gdf = load_watershed(shp_path)
+    success = clip_and_reproject(nc_path, gdf, out_path, variable, resampling, units)
+    if success:
+        if delete_raw and os.path.exists(nc_path):
+            os.remove(nc_path)
+            return "deleted"
+        return "processed"
+    return "failed"
+
+
 def process_water_year(wy: int, gdf: gpd.GeoDataFrame,
                        variable: str = "SWE",
                        delete_raw: bool = DELETE_RAW_NETCDF,
                        resampling: str = RESAMPLING_METHOD,
-                       units: str = DEFAULT_UNITS) -> dict:
+                       units: str = DEFAULT_UNITS,
+                       shp_path: str | None = None,
+                       max_workers: int | None = None) -> dict:
     """
     Clip and reproject all netCDF files for a single water year.
 
@@ -184,12 +211,13 @@ def process_water_year(wy: int, gdf: gpd.GeoDataFrame,
 
     stats = {"processed": 0, "skipped": 0, "failed": 0, "deleted": 0}
 
-    for i, nc_path in enumerate(nc_files, 1):
+    # Build list of files that need processing (skip existing)
+    to_process = []
+    for nc_path in nc_files:
         nc_name = os.path.basename(nc_path)
         tif_name = build_geotiff_name(nc_name, variable)
         out_path = os.path.join(out_dir, tif_name)
 
-        # Skip if GeoTIFF already exists
         if os.path.exists(out_path) and os.path.getsize(out_path) > 0:
             stats["skipped"] += 1
             if delete_raw and os.path.exists(nc_path):
@@ -197,16 +225,53 @@ def process_water_year(wy: int, gdf: gpd.GeoDataFrame,
                 stats["deleted"] += 1
             continue
 
-        logger.info(f"  [{i}/{len(nc_files)}] {nc_name} → {tif_name}")
+        to_process.append((nc_path, out_path, nc_name, tif_name))
 
-        if clip_and_reproject(nc_path, gdf, out_path, variable, resampling, units):
-            stats["processed"] += 1
-            if delete_raw:
-                os.remove(nc_path)
-                stats["deleted"] += 1
-                logger.debug(f"  Deleted raw: {nc_name}")
-        else:
-            stats["failed"] += 1
+    if not to_process:
+        return stats
+
+    # Parallel processing if watershed path is available and workers > 1
+    n_workers = max_workers or max(1, multiprocessing.cpu_count() - 1)
+
+    if shp_path and n_workers > 1 and len(to_process) > 1:
+        logger.info(f"  Processing {len(to_process)} files with {n_workers} workers")
+        futures = {}
+        with ProcessPoolExecutor(max_workers=n_workers) as executor:
+            for nc_path, out_path, nc_name, tif_name in to_process:
+                future = executor.submit(
+                    _clip_worker, nc_path, shp_path, out_path,
+                    variable, resampling, units, delete_raw,
+                )
+                futures[future] = (nc_name, tif_name)
+
+            for future in as_completed(futures):
+                nc_name, tif_name = futures[future]
+                try:
+                    result = future.result()
+                    if result == "deleted":
+                        stats["processed"] += 1
+                        stats["deleted"] += 1
+                        logger.debug(f"  Deleted raw: {nc_name}")
+                    elif result == "processed":
+                        stats["processed"] += 1
+                    else:
+                        stats["failed"] += 1
+                except Exception as e:
+                    logger.error(f"  Worker error for {nc_name}: {e}")
+                    stats["failed"] += 1
+    else:
+        # Sequential fallback
+        for i, (nc_path, out_path, nc_name, tif_name) in enumerate(to_process, 1):
+            logger.info(f"  [{i}/{len(nc_files)}] {nc_name} → {tif_name}")
+
+            if clip_and_reproject(nc_path, gdf, out_path, variable, resampling, units):
+                stats["processed"] += 1
+                if delete_raw:
+                    os.remove(nc_path)
+                    stats["deleted"] += 1
+                    logger.debug(f"  Deleted raw: {nc_name}")
+            else:
+                stats["failed"] += 1
 
     return stats
 
@@ -232,6 +297,8 @@ def main():
     parser.add_argument("--resampling", type=str, default=RESAMPLING_METHOD,
                         choices=["nearest", "bilinear", "cubic"],
                         help=f"Resampling method for reprojection (default: {RESAMPLING_METHOD})")
+    parser.add_argument("--workers", type=int, default=None,
+                        help="Number of parallel workers (default: CPU count - 1)")
     args = parser.parse_args()
 
     logger.info("=" * 70)
@@ -242,6 +309,7 @@ def main():
     logger.info(f"  Units     : {args.units}")
     logger.info(f"  Delete raw: {not args.keep_raw}")
     logger.info(f"  Resampling: {args.resampling}")
+    logger.info(f"  Workers   : {args.workers or 'auto'}")
     logger.info("=" * 70)
 
     gdf = load_watershed(args.watershed)
@@ -255,7 +323,9 @@ def main():
                                         variable=args.variable,
                                         delete_raw=not args.keep_raw,
                                         resampling=args.resampling,
-                                        units=args.units)
+                                        units=args.units,
+                                        shp_path=args.watershed,
+                                        max_workers=args.workers)
             for k in total:
                 total[k] += result[k]
             logger.info(f"  WY{wy} — {result}")
