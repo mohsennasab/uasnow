@@ -17,6 +17,7 @@ The [UA SWE dataset](https://climate.arizona.edu/data/UA_SWE/DailyData_800m/) pr
 - **Metadata logging** — Every run saves a timestamped `.log.txt` file in `data/` with process details and step timing
 - **Single pipeline command** — `run_pipeline.py` chains steps 1–4 end-to-end
 - **HEC-DSS export** — Standalone step 5 builds a period-of-record DSS file of daily SWE grids with HEC-Vortex, masked to a buffered watershed and named to the FFRD SOP (December 2025). Step 5b appends newer stable days to that file without touching the existing grids
+- **Calibration event DSS files** — Standalone step 6 reads a list of calibration events and writes one DSS file per event with snow, covering the event start date ±10 days, made the same way as step 5
 
 ---
 
@@ -77,7 +78,7 @@ The watershed file can contain one or more polygon features. All features are di
 
 ## How Files Are Processed
 
-The toolkit follows a four-step pipeline. Each step can be run independently or chained via `run_pipeline.py`. Steps 5 and 5b are separate, standalone HEC-DSS tools and are not part of `run_pipeline.py`.
+The toolkit follows a four-step pipeline. Each step can be run independently or chained via `run_pipeline.py`. Steps 5, 5b, and 6 are separate, standalone HEC-DSS tools and are not part of `run_pipeline.py`.
 
 ### Step 1 — Download (`01_download_ua_swe.py`)
 
@@ -243,6 +244,59 @@ For the existing `ua_upper-tennessee_por_swe_1day.dss`, pass the original `F:/Pr
 
 If a run is interrupted, run the same command again. It continues after the last grid in the file.
 
+### Step 6 — Calibration Event DSS Files (`06_create_event_swe_dss.py`, standalone)
+
+Writes one HEC-DSS file of daily SWE grids for each calibration event that has snow in the buffered watershed. Like Step 5, it reads the **original netCDF files from Step 1**, so keep them (e.g. in `data/raw/All_NC_Files`).
+
+1. **Reads the events file** (CSV or Excel). The only required column is the event start date; the header can be `Start Date`, `Date`, `Storm Date`, or `start_date`. A `Name` column is optional. Rows with an unreadable date are skipped and listed in the log.
+2. **Builds the window** from the start date minus `--buffer_days_before` (default 10) to the start date plus `--buffer_days_after` (default 10), inclusive: 21 daily grids by default. These are the same buffers as the calibration events explorer. The spatial buffer is the buffered watershed passed with `--boundary`, used as is.
+3. **Makes each grid exactly as Step 5 does.** The Step 5 functions are imported and reused: HEC-Vortex reads the `SWE` variable with the file's NAD83 definition, clips to the boundary envelope, reprojects to SHG, resamples, cells that do not touch the polygon become no-data, and the grid is written in millimeters as `INST-VAL`. Grids, pathnames, and time stamps are therefore identical to the same days in the Step 5 period-of-record file.
+4. **Checks for snow.** An event with no SWE above 0 mm in any watershed cell on any day of its window is skipped, unless `--include_no_snow` is given.
+5. **Validates each file** with the Step 5 checks: one grid per day with an input file, units and cell size, no data outside the buffered polygon, and HEC-Vortex reads the last grid back as instantaneous data.
+
+#### Naming
+
+| Item | Convention | Example |
+|------|------------|---------|
+| File name | `data-source _ swe _ event-name` | `ua_swe_feb-2020.dss` |
+| Event name | Month and year of the event start date, `mmm-yyyy` | `feb-2020` |
+| DSS pathname | Same as Step 5 | `/SHG1K/UPPER-TENNESSEE/SWE/04FEB2020:2400//UA/` |
+
+When two events start in the same month, the second file gets `-2`, the third `-3`, and so on (`ua_swe_feb-2020-2.dss`).
+
+#### Run
+
+```bash
+# Check events, windows, inputs, and file names without writing anything
+python 06_create_event_swe_dss.py \
+    --events "F:/Met_Tools/calibration_events_explorer/Events.csv" \
+    --input_dir "data/raw/All_NC_Files" \
+    --boundary "watersheds/upper-tennessee_huc04_10km_buffer/upper-tennessee_huc04_10km_buffer.shp" \
+    --basin upper-tennessee \
+    --output_dir "data/dss/events" \
+    --dry_run
+
+# Write the event files (remove --dry_run)
+python 06_create_event_swe_dss.py --events ... --input_dir ... --boundary ... --basin upper-tennessee --output_dir ...
+```
+
+| Argument | Default | Description |
+|----------|---------|-------------|
+| `--events` | required | CSV or Excel file with the event start dates |
+| `--input_dir` | `data/raw` | Folder with `UA_SWE_Depth_800m_v1_*.nc` files, searched recursively |
+| `--boundary` | required | Buffered watershed polygon with a `.prj` file |
+| `--basin` | boundary file name | Lowercase SOP basin name for the DSS B part |
+| `--output_dir` | `data/dss/events` | Output folder for the event DSS files, summary, and log |
+| `--buffer_days_before`, `--buffer_days_after` | `10`, `10` | Days before and after each event start date |
+| `--include_no_snow` | off | Also write events with no SWE in the buffered watershed |
+| `--overwrite` | off | Replace event files that already exist |
+| `--cell_size`, `--resampling`, `--source`, `--vortex_home`, `--workers` | as Step 5 | Same meaning as in Step 5 |
+| `--dry_run` | off | Report only; Vortex is not started and nothing is written |
+
+Days in a window with no input file are not filled; they are listed in `<event file>.missing_days.csv`. An event whose window has no input files at all is skipped.
+
+**Output:** one `<source>_swe_<mmm-yyyy>.dss` per event with snow, `event_swe_dss_summary.csv` (every event: window, days with data, maximum SWE and its date, maximum watershed-mean SWE, days with snow, file name, and whether it was written or skipped), and a log file.
+
 ---
 
 ## Reprojection: Clip-Then-Reproject
@@ -295,6 +349,7 @@ ua_swe_toolkit/
 ├── 04_visualize_swe.py     # Step 4: Spatial maps + time series + heatmap
 ├── 05_create_swe_dss.py    # Step 5 (standalone): HEC-DSS export with HEC-Vortex
 ├── 05b_extend_swe_dss.py   # Step 5b (standalone): append new stable days to a step 5 DSS
+├── 06_create_event_swe_dss.py # Step 6 (standalone): one DSS per calibration event with snow
 ├── run_pipeline.py         # End-to-end pipeline orchestrator (steps 1–4)
 ├── requirements.txt        # Python dependencies
 ├── .gitignore
@@ -347,10 +402,10 @@ pip install -r requirements.txt
 | numpy                | 1.24            | Numerical operations                 |
 | matplotlib           | 3.8             | Plotting                             |
 | requests             | 2.31            | HTTP downloads                       |
-| JPype1               | 1.5             | Step 5: runs HEC-Vortex (Java)       |
-| hecdss               | 0.1.29          | Step 5: DSS catalog validation       |
+| JPype1               | 1.5             | Steps 5, 5b, 6: run HEC-Vortex (Java) |
+| hecdss               | 0.1.29          | Steps 5, 5b, 6: DSS validation       |
 
-Step 5 also needs a local HEC-Vortex installation (see [Step 5](#step-5--hec-dss-export-05_create_swe_dsspy-standalone)).
+Steps 5, 5b, and 6 also need a local HEC-Vortex installation (see [Step 5](#step-5--hec-dss-export-05_create_swe_dsspy-standalone)).
 
 ---
 
